@@ -63,7 +63,7 @@ aside a.active::after {
 
 main.sections {
     overflow: auto;
-    height: 100vh;
+    height: 100dvh;
     -ms-scroll-snap-type: y mandatory;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
