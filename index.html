@@ -20,7 +20,7 @@
 
 <body class="animated-background bg-gradient-to-r from-[#377dff] via-[#00ccff] to-[#377dff]">
     <aside
-        class="w-8 md:w-12 flex flex-col gap-6 justify-center items-center fixed h-screen top-0 left-0 bg-transparent text-white md:shadow-lg"
+        class="w-8 md:w-12 flex flex-col gap-6 justify-center items-center fixed h-[100dvh] top-0 left-0 bg-transparent text-white md:shadow-lg"
         x-data="sidemenu()">
         <template x-for="menu in menus" :key="menu.id">
             <a x-bind:href="'#' + menu.id" x-text="menu.name"
@@ -30,7 +30,7 @@
     </aside>
     <main class="sections text-white" x-data="sidemenu">
         <!-- Home Section -->
-        <section id="home" class="h-screen flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
+        <section id="home" class="h-[100dvh] flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
             <div class="text-center" x-data="{ show: false }" x-intersect="show = true">
                 <h1 class="text-4xl md:text-5xl font-bold" x-show="show" x-transition.duration.1000ms>Hello, I'm Deesha
                 </h1>
@@ -41,7 +41,7 @@
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="h-screen flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
+        <section id="about" class="h-[100dvh] flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-3xl text-center" x-data="{ show: false }" x-intersect="show = true">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>About Me</h2>
             <p class="text-base md:text-lg" x-show="show" x-transition.duration.1000ms.delay.200ms>
@@ -51,7 +51,7 @@
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portfolio" class="h-screen flex items-center justify-center"
+        <section id="portfolio" class="h-[100dvh] flex items-center justify-center"
             x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-5xl text-center" x-data="{ show: false }" x-intersect="show = true">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Portfolio
@@ -82,7 +82,7 @@
         </section>
 
         <!-- Blog Section -->
-        <section id="blog" class="h-screen flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
+        <section id="blog" class="h-[100dvh] flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-3xl text-center" x-data="{ show: false }" x-intersect="show = true">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Blog</h2>
             <p class="text-base md:text-lg mb-6" x-show="show" x-transition.duration.1000ms.delay.200ms>
@@ -109,7 +109,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="h-screen flex items-center justify-center"
+        <section id="contact" class="h-[100dvh] flex items-center justify-center"
             x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-xl w-full text-center px-4" x-data="{ show: false }" x-intersect="show = true">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Contact
@@ -149,7 +149,7 @@
         </section>
 
         <!-- Resume Section -->
-        <section id="resume" class="h-screen flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
+        <section id="resume" class="h-[100dvh] flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-3xl text-center" x-data="{ show: false }" x-intersect="show = true">
             <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Resume</h2>
             <p class="text-base md:text-lg mb-6" x-show="show" x-transition.duration.1000ms.delay.200ms>
