@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="XQQHwvNpMlxOGarUHKz2CbGSry-YDohO_3Jou9TcIBk" />
-    <meta name="description" content="Deesha Gondur's Portfolio - A student at the University of Mauritius, specializing in Banking & Finance. Explore my projects, blog, and resume.">
-    <meta name="keywords" content="Deesha Gondur, Portfolio, Banking, Finance, University of Mauritius, Student, Projects, Blog">
+    <meta name="description"
+        content="Deesha Gondur's Portfolio - A student at the University of Mauritius, specializing in Banking & Finance. Explore my projects, blog, and resume.">
+    <meta name="keywords"
+        content="Deesha Gondur, Portfolio, Banking, Finance, University of Mauritius, Student, Projects, Blog">
     <meta name="author" content="Poshan Peeroo">
     <title>Deesha Gondur - Portfolio | Blog</title>
 
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -23,8 +27,9 @@
 </head>
 
 <body class="animated-background bg-gradient-to-r from-[#377dff] via-[#00ccff] to-[#377dff]">
+    <canvas id="bg-canvas" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"></canvas>
     <aside
-        class="w-8 md:w-12 flex flex-col gap-6 justify-center items-center fixed h-[100dvh] top-0 left-0 bg-transparent text-white md:shadow-lg"
+        class="z-10 w-8 md:w-12 flex flex-col gap-6 justify-center items-center fixed h-[100dvh] top-0 left-0 bg-transparent text-white md:shadow-lg"
         x-data="sidemenu()">
         <template x-for="menu in menus" :key="menu.id">
             <a x-bind:href="'#' + menu.id" x-text="menu.name"
@@ -32,7 +37,7 @@
                 @menu-selected.window="$el.classList.toggle('active', $event.detail.activeMenu === menu.id);"></a>
         </template>
     </aside>
-    <main class="sections text-white" x-data="sidemenu">
+    <main class="z-10 sections text-white" x-data="sidemenu">
         <!-- Home Section -->
         <section id="home" class="h-[100dvh] flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
             <div class="text-center" x-data="{ show: false }" x-intersect="show = true">
@@ -45,12 +50,16 @@
         </section>
 
         <!-- About Me Section -->
-        <section id="about" class="h-[100dvh] flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
+        <section id="about" class="h-[100dvh] flex items-center justify-center"
+            x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-3xl text-center" x-data="{ show: false }" x-intersect="show = true">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>About Me</h2>
-            <p class="text-base md:text-lg" x-show="show" x-transition.duration.1000ms.delay.200ms>
-                I am a dedicated and analytical student currently pursuing a degree in Banking & Finance at the University of Mauritius. I have a strong interest in financial markets, investment strategies, and economic principles. Eager to apply my academic knowledge in practical settings and contribute to the finance industry.
-            </p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>About Me</h2>
+                <p class="text-base md:text-lg" x-show="show" x-transition.duration.1000ms.delay.200ms>
+                    I am a dedicated and analytical student currently pursuing a degree in Banking & Finance at the
+                    University of Mauritius. I have a strong interest in financial markets, investment strategies, and
+                    economic principles. Eager to apply my academic knowledge in practical settings and contribute to
+                    the finance industry.
+                </p>
             </div>
         </section>
 
@@ -58,57 +67,66 @@
         <section id="portfolio" class="h-[100dvh] flex items-center justify-center"
             x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-5xl text-center" x-data="{ show: false }" x-intersect="show = true">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Portfolio
-            </h2>
-            <p class="text-base md:text-lg mb-6" x-show="show" x-transition.duration.1000ms.delay.200ms>
-                Here are some of the projects and case studies I've worked on during my studies:
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Example Portfolio Item 1 -->
-                <div class="bg-white p-4 rounded shadow" x-show="show" x-transition.duration.1000ms>
-                <h3 class="font-semibold text-lg mb-2 text-gray-800">Market Analysis Report</h3>
-                <p class="text-sm text-gray-600">An in-depth analysis of the current trends in the Mauritian stock market.</p>
-                <!-- Add link or image if available -->
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Portfolio
+                </h2>
+                <p class="text-base md:text-lg mb-6" x-show="show" x-transition.duration.1000ms.delay.200ms>
+                    Here are some of the projects and case studies I've worked on during my studies:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Example Portfolio Item 1 -->
+                    <div class="bg-white p-4 rounded shadow" x-show="show" x-transition.duration.1000ms>
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Market Analysis Report</h3>
+                        <p class="text-sm text-gray-600">An in-depth analysis of the current trends in the Mauritian
+                            stock market.</p>
+                        <!-- Add link or image if available -->
+                    </div>
+                    <!-- Example Portfolio Item 2 -->
+                    <div class="bg-white p-4 rounded shadow" x-show="show" x-transition.duration.1000ms.delay.100ms>
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Investment Strategy Simulation</h3>
+                        <p class="text-sm text-gray-600">Developed and tested a hypothetical investment portfolio based
+                            on modern portfolio theory.</p>
+                    </div>
+                    <!-- Example Portfolio Item 3 -->
+                    <div class="bg-white p-4 rounded shadow" x-show="show" x-transition.duration.1000ms.delay.200ms>
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">Case Study: Banking Regulation</h3>
+                        <p class="text-sm text-gray-600">Examined the impact of recent regulatory changes on the banking
+                            sector.</p>
+                    </div>
+                    <!-- Add more portfolio items as needed -->
                 </div>
-                <!-- Example Portfolio Item 2 -->
-                <div class="bg-white p-4 rounded shadow" x-show="show" x-transition.duration.1000ms.delay.100ms>
-                <h3 class="font-semibold text-lg mb-2 text-gray-800">Investment Strategy Simulation</h3>
-                <p class="text-sm text-gray-600">Developed and tested a hypothetical investment portfolio based on modern portfolio theory.</p>
-                </div>
-                <!-- Example Portfolio Item 3 -->
-                <div class="bg-white p-4 rounded shadow" x-show="show" x-transition.duration.1000ms.delay.200ms>
-                <h3 class="font-semibold text-lg mb-2 text-gray-800">Case Study: Banking Regulation</h3>
-                <p class="text-sm text-gray-600">Examined the impact of recent regulatory changes on the banking sector.</p>
-                </div>
-                <!-- Add more portfolio items as needed -->
-            </div>
             </div>
         </section>
 
         <!-- Blog Section -->
         <section id="blog" class="h-[100dvh] flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-3xl text-center" x-data="{ show: false }" x-intersect="show = true">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Blog</h2>
-            <p class="text-base md:text-lg mb-6" x-show="show" x-transition.duration.1000ms.delay.200ms>
-                Read my latest thoughts and insights on finance, economics, and student life.
-            </p>
-            <div class="space-y-4">
-                <!-- Example Blog Post Snippet 1 -->
-                <div class="bg-white p-4 rounded shadow text-left" x-show="show" x-transition.duration.1000ms.delay.300ms>
-                <h3 class="font-semibold text-lg mb-1 text-gray-800">Understanding Inflation</h3>
-                <p class="text-sm text-gray-600 mb-2">Published on: <span class="font-medium">Oct 20, 2023</span></p>
-                <p class="text-sm text-gray-800">A brief overview of what inflation is and how it affects your savings...</p>
-                <a href="#" class="text-sm text-[#6A5ACD] hover:underline">Read More</a>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Blog</h2>
+                <p class="text-base md:text-lg mb-6" x-show="show" x-transition.duration.1000ms.delay.200ms>
+                    Read my latest thoughts and insights on finance, economics, and student life.
+                </p>
+                <div class="space-y-4">
+                    <!-- Example Blog Post Snippet 1 -->
+                    <div class="bg-white p-4 rounded shadow text-left" x-show="show"
+                        x-transition.duration.1000ms.delay.300ms>
+                        <h3 class="font-semibold text-lg mb-1 text-gray-800">Understanding Inflation</h3>
+                        <p class="text-sm text-gray-600 mb-2">Published on: <span class="font-medium">Oct 20,
+                                2023</span></p>
+                        <p class="text-sm text-gray-800">A brief overview of what inflation is and how it affects your
+                            savings...</p>
+                        <a href="#" class="text-sm text-[#6A5ACD] hover:underline">Read More</a>
+                    </div>
+                    <!-- Example Blog Post Snippet 2 -->
+                    <div class="bg-white p-4 rounded shadow text-left" x-show="show"
+                        x-transition.duration.1000ms.delay.400ms>
+                        <h3 class="font-semibold text-lg mb-1 text-gray-800">Tips for Budgeting as a Student</h3>
+                        <p class="text-sm text-gray-600 mb-2">Published on: <span class="font-medium">Sep 15,
+                                2023</span></p>
+                        <p class="text-sm text-gray-800">Managing finances can be tough in university. Here are some
+                            practical tips...</p>
+                        <a href="#" class="text-sm text-[#6A5ACD] hover:underline">Read More</a>
+                    </div>
+                    <!-- Add more blog snippets as needed -->
                 </div>
-                <!-- Example Blog Post Snippet 2 -->
-                <div class="bg-white p-4 rounded shadow text-left" x-show="show" x-transition.duration.1000ms.delay.400ms>
-                <h3 class="font-semibold text-lg mb-1 text-gray-800">Tips for Budgeting as a Student</h3>
-                <p class="text-sm text-gray-600 mb-2">Published on: <span class="font-medium">Sep 15, 2023</span></p>
-                <p class="text-sm text-gray-800">Managing finances can be tough in university. Here are some practical tips...</p>
-                <a href="#" class="text-sm text-[#6A5ACD] hover:underline">Read More</a>
-                </div>
-                <!-- Add more blog snippets as needed -->
-            </div>
             </div>
         </section>
 
@@ -116,66 +134,68 @@
         <section id="contact" class="h-[100dvh] flex items-center justify-center"
             x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-xl w-full text-center px-4" x-data="{ show: false }" x-intersect="show = true">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Contact
-            </h2>
-            <p class="text-base md:text-lg mb-8" x-show="show" x-transition.duration.1000ms.delay.100ms>
-                Feel free to reach out via email or connect with me on social media.
-            </p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Contact
+                </h2>
+                <p class="text-base md:text-lg mb-8" x-show="show" x-transition.duration.1000ms.delay.100ms>
+                    Feel free to reach out via email or connect with me on social media.
+                </p>
 
-            <form class="space-y-4 mb-10">
-                 <input type="text" placeholder="Your Name"
-                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6A5ACD] transition duration-300"
-                x-show="show" x-transition.duration.1000ms.delay.200ms>
-                <input type="email" placeholder="Your Email"
-                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6A5ACD] transition duration-300"
-                x-show="show" x-transition.duration.1000ms.delay.300ms>
-                <textarea placeholder="Your Message" rows="4"
-                class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6A5ACD] transition duration-300"
-                x-show="show" x-transition.duration.1000ms.delay.400ms></textarea>
-                <button type="submit"
-                class="w-full px-6 py-3 bg-[#6A5ACD] text-white font-semibold rounded-md hover:bg-[#483D8B] transition-colors duration-300 transform hover:scale-105"
-                x-show="show" x-transition.duration.1000ms.delay.500ms>Send Message</button>
-            </form>
+                <form class="space-y-4 mb-10">
+                    <input type="text" placeholder="Your Name"
+                        class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6A5ACD] transition duration-300"
+                        x-show="show" x-transition.duration.1000ms.delay.200ms>
+                    <input type="email" placeholder="Your Email"
+                        class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6A5ACD] transition duration-300"
+                        x-show="show" x-transition.duration.1000ms.delay.300ms>
+                    <textarea placeholder="Your Message" rows="4"
+                        class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6A5ACD] transition duration-300"
+                        x-show="show" x-transition.duration.1000ms.delay.400ms></textarea>
+                    <button type="submit"
+                        class="w-full px-6 py-3 bg-[#6A5ACD] text-white font-semibold rounded-md hover:bg-[#483D8B] transition-colors duration-300 transform hover:scale-105"
+                        x-show="show" x-transition.duration.1000ms.delay.500ms>Send Message</button>
+                </form>
 
-            <div class="flex justify-center gap-8">
-                <!-- Update social links as needed -->
-                <a href="mailto:deesha.gondur@example.com"
-                   class="text-gray-600 text-4xl transition-transform duration-300 hover:scale-125 hover:text-[#6A5ACD]" x-show="show"
-                   x-transition.duration.1000ms.delay.600ms><i class="fas fa-envelope"></i></a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank"
-                class="text-[#0077B5] text-4xl transition-transform duration-300 hover:scale-125" x-show="show"
-                x-transition.duration.1000ms.delay.700ms><i class="fab fa-linkedin"></i></a>
-                 <a href="https://github.com/yourprofile" target="_blank"
-                   class="text-[#333] text-4xl transition-transform duration-300 hover:scale-125" x-show="show"
-                   x-transition.duration.1000ms.delay.800ms><i class="fab fa-github"></i></a>
-            </div>
+                <div class="flex justify-center gap-8">
+                    <!-- Update social links as needed -->
+                    <a href="mailto:deesha.gondur@example.com"
+                        class="text-gray-600 text-4xl transition-transform duration-300 hover:scale-125 hover:text-[#6A5ACD]"
+                        x-show="show" x-transition.duration.1000ms.delay.600ms><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank"
+                        class="text-[#0077B5] text-4xl transition-transform duration-300 hover:scale-125" x-show="show"
+                        x-transition.duration.1000ms.delay.700ms><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/yourprofile" target="_blank"
+                        class="text-[#333] text-4xl transition-transform duration-300 hover:scale-125" x-show="show"
+                        x-transition.duration.1000ms.delay.800ms><i class="fab fa-github"></i></a>
+                </div>
             </div>
         </section>
 
         <!-- Resume Section -->
-        <section id="resume" class="h-[100dvh] flex items-center justify-center" x-intersect.half="setActiveMenu($el.id)">
+        <section id="resume" class="h-[100dvh] flex items-center justify-center"
+            x-intersect.half="setActiveMenu($el.id)">
             <div class="max-w-3xl text-center" x-data="{ show: false }" x-intersect="show = true">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Resume</h2>
-            <p class="text-base md:text-lg mb-6" x-show="show" x-transition.duration.1000ms.delay.200ms>
-                Download my resume to learn more about my skills, experience, and education.
-            </p>
-            <a href="/path/to/your/resume.pdf" download="Deesha_Gondur_Resume.pdf"
-               class="inline-block px-8 py-3 bg-[#6A5ACD] text-white font-semibold rounded-md hover:bg-[#483D8B] transition-colors duration-300 transform hover:scale-105"
-               x-show="show" x-transition.duration.1000ms.delay.300ms>
-               <i class="fas fa-download mr-2"></i> Download Resume
-            </a>
-            <!-- Optionally, display key resume points here -->
-             <div class="mt-8 text-left max-w-md mx-auto space-y-4" x-show="show" x-transition.duration.1000ms.delay.400ms>
-                <div>
-                <h3 class="font-semibold text-lg">Education</h3>
-                <p>BSc (Hons) Banking & Finance - University of Mauritius (Expected Graduation: YYYY)</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" x-show="show" x-transition.duration.1000ms>Resume</h2>
+                <p class="text-base md:text-lg mb-6" x-show="show" x-transition.duration.1000ms.delay.200ms>
+                    Download my resume to learn more about my skills, experience, and education.
+                </p>
+                <a href="/path/to/your/resume.pdf" download="Deesha_Gondur_Resume.pdf"
+                    class="inline-block px-8 py-3 bg-[#6A5ACD] text-white font-semibold rounded-md hover:bg-[#483D8B] transition-colors duration-300 transform hover:scale-105"
+                    x-show="show" x-transition.duration.1000ms.delay.300ms>
+                    <i class="fas fa-download mr-2"></i> Download Resume
+                </a>
+                <!-- Optionally, display key resume points here -->
+                <div class="mt-8 text-left max-w-md mx-auto space-y-4" x-show="show"
+                    x-transition.duration.1000ms.delay.400ms>
+                    <div>
+                        <h3 class="font-semibold text-lg">Education</h3>
+                        <p>BSc (Hons) Banking & Finance - University of Mauritius (Expected Graduation: YYYY)</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">Key Skills</h3>
+                        <p>Financial Analysis, Microsoft Excel, Investment Principles, Communication, Teamwork</p>
+                    </div>
+                    <!-- Add more sections like Experience or Certifications if applicable -->
                 </div>
-                <div>
-                <h3 class="font-semibold text-lg">Key Skills</h3>
-                <p>Financial Analysis, Microsoft Excel, Investment Principles, Communication, Teamwork</p>
-                </div>
-                <!-- Add more sections like Experience or Certifications if applicable -->
-            </div>
             </div>
         </section>
     </main>
