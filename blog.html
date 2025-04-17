@@ -148,10 +148,8 @@
     class="animated-background bg-gradient-to-r from-[#377dff] via-[#00ccff] to-[#377dff]"
     x-data='{
       slug: new URLSearchParams(window.location.search).get(`slug`),
-      isBlogPage: this.slug !== null,
       async fetchBlog() {
-        if (this.isBlogPage) {
-          console.log(this.slug);
+        if (this.slug !== null) {
           let res = await fetch(`/data/posts/${this.slug}.md`);
           if (res.ok) {
             const content = await res.text();
@@ -225,12 +223,12 @@
     </aside>
     <main
       x-ref="blogContent"
-      x-show="isBlogPage"
+      x-show="slug !== null"
       class="z-10 h-[100dvh] flex flex-col text-white p-10 md:px-40 md:py-32"
     ></main>
 
     <main
-      x-show="!isBlogPage"
+      x-show="slug === null"
       class="z-10 h-[100dvh] flex flex-col items-center text-white p-10 md:px-20 text-center"
       x-data="{ 
         blogPosts: [],
