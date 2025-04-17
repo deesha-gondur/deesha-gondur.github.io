@@ -5,7 +5,7 @@
         "date": "2024-06-28",
         "tags": ["central bank", "economy", "banking", "finance"],
         "summary": "An explanation of what central banks do and their importance in the financial system.",
-        "url": "/blogs/central-banks-role"
+        "url": "/blog?slug=central-banks-role"
     },
     {
         "title": "Understanding Loans: Types, Terms, and Tips",
@@ -13,7 +13,7 @@
         "date": "2024-06-25",
         "tags": ["loans", "banking", "finance", "students"],
         "summary": "A guide to different types of loans, key terms, and tips for responsible borrowing.",
-        "url": "/blogs/understanding-loans"
+        "url": "/blog?slug=understanding-loans"
     },
     {
         "title": "Introduction to Stock Markets for Beginners",
@@ -21,7 +21,7 @@
         "date": "2024-06-22",
         "tags": ["stock market", "investing", "finance", "beginners"],
         "summary": "A beginner-friendly introduction to stock markets, how they work, and basic investing concepts.",
-        "url": "/blogs/stock-market-intro"
+        "url": "/blog?slug=stock-market-intro"
     },
     {
         "title": "Digital Banking: Pros, Cons, and Security Tips",
@@ -29,7 +29,7 @@
         "date": "2024-06-20",
         "tags": ["digital banking", "technology", "security", "finance"],
         "summary": "An overview of digital banking, its advantages, disadvantages, and how to stay safe online.",
-        "url": "/blogs/digital-banking-guide"
+        "url": "/blog?slug=digital-banking-guide"
     },
     {
         "title": "Types of Bank Accounts: Which One is Right for You?",
@@ -37,7 +37,7 @@
         "date": "2024-06-18",
         "tags": ["banking", "accounts", "students", "finance"],
         "summary": "A comparison of different types of bank accounts and tips for choosing the best one for your needs.",
-        "url": "/blogs/types-of-bank-accounts"
+        "url": "/blog?slug=types-of-bank-accounts"
     },
     {
         "title": "What is Inflation? Causes and Effects Explained",
@@ -45,7 +45,7 @@
         "date": "2024-06-15",
         "tags": ["economics", "inflation", "banking", "finance"],
         "summary": "An easy-to-understand explanation of inflation, its causes, and its impact on everyday life.",
-        "url": "/blogs/inflation-explained"
+        "url": "/blog?slug=inflation-explained"
     },
     {
         "title": "The Basics of Personal Budgeting for Students",
@@ -53,7 +53,7 @@
         "date": "2024-06-12",
         "tags": ["personal finance", "budgeting", "students", "finance"],
         "summary": "A practical guide to creating and managing a personal budget as a student.",
-        "url": "/blogs/personal-budgeting-students"
+        "url": "/blog?slug=personal-budgeting-students"
     },
     {
         "title": "Credit Scores: What They Are and Why They Matter",
@@ -61,7 +61,7 @@
         "date": "2024-06-10",
         "tags": ["finance", "credit score", "personal finance", "banking"],
         "summary": "A student-friendly overview of credit scores, their calculation, and their impact on financial decisions.",
-        "url": "/blogs/credit-scores-explained"
+        "url": "/blog?slug=credit-scores-explained"
     },
     {
         "title": "How Banks Create Money: The Money Multiplier Explained",
@@ -69,7 +69,7 @@
         "date": "2024-06-05",
         "tags": ["banking", "money creation", "economics", "finance student"],
         "summary": "A simplified explanation of the money multiplier effect and how banks contribute to money supply.",
-        "url": "/blogs/money-multiplier-explained"
+        "url": "/blog?slug=money-multiplier-explained"
     },
     {
         "title": "Understanding Compound Interest: A Beginner's Guide",
@@ -77,6 +77,6 @@
         "date": "2024-06-01",
         "tags": ["banking", "finance", "compound interest", "basics"],
         "summary": "An introductory guide to compound interest, its calculation, and its importance in personal finance.",
-        "url": "/blogs/compound-interest-guide"
+        "url": "/blog?slug=compound-interest-guide"
     }
 ]

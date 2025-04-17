@@ -48,6 +48,7 @@
     ></script>
 
     <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -59,15 +60,159 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+
+    <style type="text/tailwindcss">
+      h1 {
+        @apply text-4xl md:text-5xl font-bold mb-4;
+      }
+      h2 {
+        @apply text-3xl md:text-4xl font-bold mb-4;
+      }
+      h3 {
+        @apply text-2xl md:text-3xl font-bold mb-4;
+      }
+      h4 {
+        @apply text-xl md:text-2xl font-bold mb-4;
+      }
+      h5 {
+        @apply text-lg md:text-xl font-bold mb-4;
+      }
+      h6 {
+        @apply text-base md:text-lg font-bold mb-4;
+      }
+      p {
+        @apply text-base md:text-lg mb-4;
+      }
+      ul {
+        @apply list-disc pl-6 mb-4;
+      }
+      ol {
+        @apply list-decimal pl-6 mb-4;
+      }
+      li {
+        @apply mb-2;
+      }
+      a {
+        @apply text-blue-500 hover:text-blue-700 underline;
+      }
+      img {
+        @apply max-w-full h-auto mb-4;
+      }
+      em {
+        @apply italic;
+      }
+      strong {
+        @apply font-bold;
+      }
+      pre {
+        @apply bg-gray-100 p-4 rounded mb-4 text-black;
+      }
+      code {
+        @apply bg-gray-100 p-1 rounded text-black break-words whitespace-pre-wrap;
+      }
+      blockquote {
+        @apply border-l-4 border-gray-300 pl-4 italic mb-4;
+      }
+      blockquote p {
+        @apply mb-0;
+      }
+      a {
+        @apply text-[#fff] hover:text-[#483D8B] transition-colors duration-300 underline;
+      }
+      table {
+        @apply w-full bg-white text-gray-800 rounded-lg shadow mb-6 overflow-hidden;
+      }
+      thead {
+        @apply bg-[#00ccff] text-white;
+      }
+      th,
+      td {
+        @apply px-4 py-3 text-left;
+      }
+      th {
+        @apply font-bold;
+      }
+      tbody tr {
+        @apply border-b border-gray-200;
+      }
+      tbody tr:last-child {
+        @apply border-b-0;
+      }
+      tbody tr:hover {
+        @apply bg-[#e6f0fa];
+      }
+    </style>
   </head>
 
   <body
     class="animated-background bg-gradient-to-r from-[#377dff] via-[#00ccff] to-[#377dff]"
+    x-data='{
+      slug: new URLSearchParams(window.location.search).get(`slug`),
+      isBlogPage: this.slug !== null,
+      async fetchBlog() {
+        if (this.isBlogPage) {
+          let res = await fetch(`./data/posts/${this.slug}.md`);
+          if (res.ok) {
+            const content = await res.text();
+            
+            document.body.classList.remove(`animated-background`);
+            document.body.style.background = `none`;
+            document.body.style.backgroundColor = `#377dff`;
+
+            const lines = content.split(`\n`);
+            const dateLine = lines.find(line => line.startsWith(`date:`));
+            const authorLine = lines.find(line => line.startsWith(`author:`));
+            const titleLine = lines.find(line => line.startsWith(`title:`));
+            const descriptionLine = lines.find(line => line.startsWith(`description:`));
+            if (dateLine) {
+              this.datePosted = dateLine.split(`:`)[1].trim();
+            }
+            if (authorLine) {
+              this.author = authorLine.split(`:`)[1].trim();
+            }
+            if (titleLine) {
+              this.title = titleLine.split(`:`)[1].trim();
+            }
+            if (descriptionLine) {
+              this.description = descriptionLine.split(`:`)[1].trim();
+            }
+            document.title = this.title;
+            const metaDescription = document.querySelector(`meta[name="description"]`);
+            if (metaDescription) {
+              metaDescription.setAttribute(`content`, this.description);
+            }
+            const metaAuthor = document.querySelector(`meta[name="author"]`);
+            if (metaAuthor) {
+              metaAuthor.setAttribute(`content`, this.author);
+            }
+            const metaDate = document.querySelector(`meta[name="date"]`);
+            if (metaDate) {
+              metaDate.setAttribute(`content`, this.datePosted);
+            }
+
+            let titleAuthorDate = `<h1>` + this.title + `</h1>`;
+            titleAuthorDate += `<div class="border-l-4 border-gray-300 pl-4 italic mb-4">`;
+            titleAuthorDate += `<p class="text-sm mb-2">Published on: `;
+            titleAuthorDate += `<span class="font-medium">` + this.datePosted + `</span></p>`;
+            titleAuthorDate += `<p class="text-sm  mb-2">Written by: `;
+            titleAuthorDate += `<span class="font-medium">` + this.author + `</span></p>`;
+            titleAuthorDate += `</div>`;
+
+            // remove metadata from content
+            const metadataRegex = /^(date|author|title|description):.*$/gm;
+            let cleanedContent = content.replace(metadataRegex, ``);
+            // Remove the first 2 occurrences of `---`
+            cleanedContent = cleanedContent.replace(/^---\s*\n?/, ``).replace(/^---\s*\n?/, ``);
+            cleanedContent += `<br /><br /><br /><br /><br />`;
+            $refs.blogContent.innerHTML = marked.parse(titleAuthorDate + cleanedContent);
+          } else {
+            console.error(`Failed to fetch blog post`);
+          }
+        }
+      },
+    }'
+    x-init="fetchBlog()"
   >
-    <canvas
-      id="bg-canvas"
-      class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
-    ></canvas>
     <aside
       class="z-10 w-8 md:w-12 flex flex-col gap-6 justify-center items-center fixed h-[100dvh] top-0 left-0 bg-transparent text-white md:shadow-lg"
     >
@@ -80,6 +225,13 @@
       </a>
     </aside>
     <main
+      x-ref="blogContent"
+      x-show="isBlogPage"
+      class="z-10 h-[100dvh] flex flex-col text-white p-10 md:px-40 md:py-32"
+    ></main>
+
+    <main
+      x-show="!isBlogPage"
       class="z-10 h-[100dvh] flex flex-col items-center text-white p-10 md:px-20 text-center"
       x-data="{ 
         blogPosts: [],
@@ -110,7 +262,9 @@
         Read my latest thoughts and insights on finance, economics, and student
         life.
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20 text-start">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20 text-start"
+      >
         <template x-for="(post, index) in blogPosts" :key="post.url">
           <div
             x-show="show"
