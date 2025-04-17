@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "title": "Financial Statement Analysis",
+        "description": "Analyzed annual reports of major banks to assess financial health and performance metrics.",
+        "skills": ["Financial Analysis", "Excel", "Accounting"],
+        "year": 2023,
+        "link": null
+    },
+    {
+        "id": 2,
+        "title": "Investment Portfolio Simulation",
+        "description": "Created and managed a simulated investment portfolio using real market data to understand risk and return.",
+        "skills": ["Portfolio Management", "Stock Market", "Risk Analysis"],
+        "year": 2023,
+        "link": null
+    },
+    {
+        "id": 3,
+        "title": "Banking Sector Research Paper",
+        "description": "Authored a research paper on the impact of digital banking on customer satisfaction in India.",
+        "skills": ["Research", "Report Writing", "Digital Banking"],
+        "year": 2022,
+        "link": null
+    },
+    {
+        "id": 4,
+        "title": "Credit Risk Assessment Model",
+        "description": "Developed a basic credit risk assessment model using historical loan data.",
+        "skills": ["Data Analysis", "Credit Risk", "Python"],
+        "year": 2023,
+        "link": null
+    },
+    {
+        "id": 5,
+        "title": "Internship at XYZ Bank",
+        "description": "Completed a summer internship focusing on retail banking operations and customer service.",
+        "skills": ["Customer Service", "Retail Banking", "Communication"],
+        "year": 2022,
+        "link": null
+    },
+    {
+        "id": 6,
+        "title": "Personal Finance Workshop",
+        "description": "Organized and led a workshop on budgeting and personal finance for college students.",
+        "skills": ["Public Speaking", "Personal Finance", "Event Management"],
+        "year": 2023,
+        "link": null
+    },
+    {
+        "id": 7,
+        "title": "FinTech Trends Presentation",
+        "description": "Presented on emerging FinTech trends and their implications for traditional banking.",
+        "skills": ["Presentation", "FinTech", "Research"],
+        "year": 2023,
+        "link": null
+    },
+    {
+        "id": 8,
+        "title": "Microfinance Case Study",
+        "description": "Conducted a case study on the effectiveness of microfinance institutions in rural development.",
+        "skills": ["Case Study", "Microfinance", "Field Research"],
+        "year": 2022,
+        "link": null
+    },
+    {
+        "id": 9,
+        "title": "Financial Literacy Campaign",
+        "description": "Volunteered in a campaign to promote financial literacy among high school students.",
+        "skills": ["Volunteering", "Financial Literacy", "Teamwork"],
+        "year": 2023,
+        "link": null
+    },
+    {
+        "id": 10,
+        "title": "Banking Regulations Overview",
+        "description": "Compiled a comprehensive overview of key banking regulations and compliance requirements in India.",
+        "skills": ["Regulatory Compliance", "Banking Laws", "Documentation"],
+        "year": 2022,
+        "link": null
+    }
+]

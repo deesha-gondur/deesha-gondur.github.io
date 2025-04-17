@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-site-verification"
+      content="XQQHwvNpMlxOGarUHKz2CbGSry-YDohO_3Jou9TcIBk"
+    />
+    <meta
+      name="description"
+      content="Deesha Gondur's Portfolio - A student at the University of Mauritius, specializing in Banking & Finance. Explore my projects, blog, and resume."
+    />
+    <meta
+      name="keywords"
+      content="Deesha Gondur, Portfolio, Banking, Finance, University of Mauritius, Student, Projects, Blog"
+    />
+    <meta name="author" content="Poshan Peeroo" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/favicon/site.webmanifest" />
+
+    <title>Deesha Gondur - Portfolio | Blog</title>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="./style/app.css" />
+
+    <script src="./scripts/app.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body
+    class="animated-background bg-gradient-to-r from-[#377dff] via-[#00ccff] to-[#377dff]"
+  >
+    <canvas
+      id="bg-canvas"
+      class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
+    ></canvas>
+    <aside
+      class="z-10 w-8 md:w-12 flex flex-col gap-6 justify-center items-center fixed h-[100dvh] top-0 left-0 bg-transparent text-white md:shadow-lg"
+    >
+      <a
+        href="/#portfolio"
+        class="text-sm font-semibold hover:text-[#483D8B] transition-colors duration-300 flex flex-row items-center bg-transparent border-none p-0 focus:outline-none rotate-180 [writing-mode:vertical-lr]"
+      >
+        <i class="fas fa-arrow-right mb-1"></i>
+        <span>Back</span>
+      </a>
+    </aside>
+    <main
+      class="z-10 h-[100dvh] flex flex-col items-center text-white p-10 md:px-20 text-center"
+      x-data="{ 
+        portfolioItems: [],
+        async fetchPortfolioItems() {
+            let res = await fetch('./data/portfolio.json');
+    
+            if (res.ok) {
+                this.portfolioItems = await res.json();
+            } else {
+                console.error('Failed to fetch portfolio items');
+            }
+        },
+        show: false
+    }"
+      x-init="fetchPortfolioItems();"
+    >
+      <h2
+        class="text-3xl md:text-4xl font-bold mb-4"
+        x-show="show"
+        x-transition.duration.1000ms
+      >
+        Portfolio
+      </h2>
+      <p
+        class="text-base md:text-lg mb-6"
+        x-show="show"
+        x-transition.duration.1000ms.delay.200ms
+      >
+        Here are some of the projects and case studies I've worked on during my
+        studies:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-20">
+        <template x-for="(item, index) in portfolioItems" :key="item.id">
+          <div
+            x-show="show"
+            x-transition:enter="transition transform duration-700"
+            x-transition:enter-start="opacity-0 scale-90 translate-y-8"
+            x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+            x-transition:leave="transition transform duration-500"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-90"
+            class="bg-white p-4 rounded shadow"
+            x-init="if (index === portfolioItems.length - 1) { $nextTick(() => { show = true })}"
+          >
+            <h3 class="font-semibold text-lg mb-2 text-gray-800">
+              <span x-text="item.title"></span>
+            </h3>
+            <p class="text-sm text-gray-600">
+              <span x-text="item.description"></span>
+            </p>
+            <!-- Add link or image if available -->
+          </div>
+        </template>
+      </div>
+    </main>
+  </body>
+</html>
