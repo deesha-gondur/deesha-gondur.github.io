@@ -176,8 +176,6 @@ window.onload = function () {
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(window.devicePixelRatio);
         });
-    } else {
-        console.error("Canvas element with id 'bg-canvas' not found.");
     }
 };
 
