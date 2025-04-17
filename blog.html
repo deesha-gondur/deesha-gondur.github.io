@@ -150,7 +150,7 @@
       slug: new URLSearchParams(window.location.search).get(`slug`),
       async fetchBlog() {
         if (this.slug !== null) {
-          let res = await fetch(`/data/posts/${this.slug}.md`);
+          let res = await fetch(`/data/posts/${this.slug}`);
           if (res.ok) {
             const content = await res.text();
             
