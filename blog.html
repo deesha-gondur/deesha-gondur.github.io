@@ -151,7 +151,8 @@
       isBlogPage: this.slug !== null,
       async fetchBlog() {
         if (this.isBlogPage) {
-          let res = await fetch(`./data/posts/${this.slug}.md`);
+          console.log(this.slug);
+          let res = await fetch(`/data/posts/${this.slug}.md`);
           if (res.ok) {
             const content = await res.text();
             
@@ -205,8 +206,6 @@
             cleanedContent = cleanedContent.replace(/^---\s*\n?/, ``).replace(/^---\s*\n?/, ``);
             cleanedContent += `<br /><br /><br /><br /><br />`;
             $refs.blogContent.innerHTML = marked.parse(titleAuthorDate + cleanedContent);
-          } else {
-            console.error(`Failed to fetch blog post`);
           }
         }
       },
