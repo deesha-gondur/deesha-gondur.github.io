@@ -152,11 +152,11 @@
         if (this.slug !== null) {
           let res = await fetch(`/data/posts/${this.slug}`);
           if (res.ok) {
-            const content = await res.text();
+
+            let html = await res.text();
+            let codeElem = html.querySelector("code.language-blog-content");
+            let content = codeElem ? codeElem.textContent : "";
             
-            document.body.classList.remove(`animated-background`);
-            document.body.style.background = `none`;
-            document.body.style.backgroundColor = `#377dff`;
 
             const lines = content.split(`\n`);
             const dateLine = lines.find(line => line.startsWith(`date:`));
