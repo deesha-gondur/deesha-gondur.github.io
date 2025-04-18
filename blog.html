@@ -206,6 +206,8 @@
             cleanedContent = cleanedContent.replace(/^---\s*\n?/, ``).replace(/^---\s*\n?/, ``);
             cleanedContent += `<br /><br /><br /><br /><br />`;
             $refs.blogContent.innerHTML = marked.parse(titleAuthorDate + cleanedContent);
+          } else {
+            this.slug = null;
           }
         }
       },
