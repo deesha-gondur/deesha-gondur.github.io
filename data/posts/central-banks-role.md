@@ -1,4 +1,4 @@
-````markdown
+````blog-content
 ---
 title: The Role of Central Banks
 date: 2024-06-11
