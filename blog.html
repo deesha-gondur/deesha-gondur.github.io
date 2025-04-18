@@ -154,7 +154,9 @@
           if (res.ok) {
 
             let html = await res.text();
-            let codeElem = html.querySelector("code.language-blog-content");
+            let tempDiv = document.createElement("div");
+            tempDiv.innerHTML = html;
+            let codeElem = tempDiv.querySelector("code.language-blog-content");
             let content = codeElem ? codeElem.textContent : "";
             
 
