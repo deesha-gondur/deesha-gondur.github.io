@@ -3,9 +3,12 @@ document.addEventListener('alpine:init', () => {
         menus: [
             { name: 'Home', icon: 'fa fa-home', id: 'home', url: '#home' },
             { name: 'About Me', icon: 'fa fa-user', id: 'about', url: '#about' },
-            { name: 'Portfolio', icon: 'fa fa-palette', id: 'portfolio', url: '#portfolio' },
-            { name: 'Blog', icon: 'fa fa-blog', id: 'blog', url: '#blog' },
+            // { name: 'Portfolio', icon: 'fa fa-palette', id: 'portfolio', url: '#portfolio' },
+            // { name: 'Blog', icon: 'fa fa-blog', id: 'blog', url: '#blog' },
             { name: 'Contact', icon: 'fa fa-envelope', id: 'contact', url: '#contact' },
+            { name: 'Education', icon: 'fas fa-graduation-cap', id: 'education', url: '#education' },
+            { name: 'Certifications', icon: 'fas fa-certificate', id: 'certifications', url: '#certifications' },
+            { name: 'Skills', icon: 'fa fa-cogs', id: 'skills', url: '#skills' },
             { name: 'Resume', icon: 'fa fa-file', id: 'resume', url: '#resume' }
         ],
         activeMenu: 'home',

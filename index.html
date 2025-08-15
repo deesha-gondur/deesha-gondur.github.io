@@ -145,17 +145,15 @@
             x-show="show"
             x-transition.duration.1000ms.delay.200ms
           >
-            I am a dedicated and analytical student currently pursuing a degree
-            in Banking & Finance at the University of Mauritius. I have a strong
-            interest in financial markets, investment strategies, and economic
-            principles. Eager to apply my academic knowledge in practical
-            settings and contribute to the finance industry.
+            I am a dedicated and analytical Banking & Finance student at the University of Mauritius with a strong passion for financial markets, investment strategies, and economic principles. 
+            I enjoy translating theory into real-world applications and thrive in environments where I can solve problems, analyze trends, and contribute to impactful financial decisions.
+            My goal is to build a career where I can apply my skills to drive value, foster innovation, and make a meaningful contribution to the finance industry.
           </p>
         </div>
       </section>
 
       <!-- Portfolio Section -->
-      <section
+      <!-- <section
         id="portfolio"
         class="h-[100dvh] flex items-center justify-center"
         x-intersect.half="setActiveMenu($el.id)"
@@ -214,7 +212,6 @@
                 <p class="text-sm text-gray-600">
                   <span x-text="item.description"></span>
                 </p>
-                <!-- Add link or image if available -->
               </div>
             </template>
           </div>
@@ -227,10 +224,10 @@
             <i class="fas fa-folder-open mr-2"></i> View Full Portfolio
           </a>
         </div>
-      </section>
+      </section> -->
 
       <!-- Blog Section -->
-      <section
+      <!-- <section
         id="blog"
         class="h-[100dvh] flex items-center justify-center"
         x-intersect.half="setActiveMenu($el.id)"
@@ -307,7 +304,7 @@
             <i class="fas fa-blog mr-2"></i> View All Blog Posts
           </a>
         </div>
-      </section>
+      </section> -->
 
       <!-- Contact Section -->
       <section
@@ -332,126 +329,224 @@
             x-show="show"
             x-transition.duration.1000ms.delay.100ms
           >
-            Feel free to reach out via email or connect with me on social media.
+            Feel free to reach out and connect with me here.
           </p>
 
-          <form class="space-y-4 mb-10">
-            <input
-              type="text"
-              placeholder="Your Name"
-              class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6A5ACD] transition duration-300"
-              x-show="show"
-              x-transition.duration.1000ms.delay.200ms
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6A5ACD] transition duration-300"
-              x-show="show"
-              x-transition.duration.1000ms.delay.300ms
-            />
-            <textarea
-              placeholder="Your Message"
-              rows="4"
-              class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6A5ACD] transition duration-300"
-              x-show="show"
-              x-transition.duration.1000ms.delay.400ms
-            ></textarea>
-            <button
-              type="submit"
-              class="w-full px-6 py-3 bg-[#6A5ACD] text-white font-semibold rounded-md hover:bg-[#483D8B] transition-colors duration-300 transform hover:scale-105"
-              x-show="show"
-              x-transition.duration.1000ms.delay.500ms
-            >
-              Send Message
-            </button>
-          </form>
-
           <div class="flex justify-center gap-8">
-            <!-- Update social links as needed -->
             <a
-              href="mailto:deesha.gondur@example.com"
+              href="mailto:teeshagondur@gmail.com"
               class="text-gray-600 text-4xl transition-transform duration-300 hover:scale-125 hover:text-[#6A5ACD]"
               x-show="show"
-              x-transition.duration.1000ms.delay.600ms
+              x-transition.duration.1000ms.delay.200ms
               ><i class="fas fa-envelope"></i
             ></a>
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://linkedin.com/in/deesha-gondur"
               target="_blank"
               class="text-[#0077B5] text-4xl transition-transform duration-300 hover:scale-125"
               x-show="show"
-              x-transition.duration.1000ms.delay.700ms
+              x-transition.duration.1000ms.delay.300ms
               ><i class="fab fa-linkedin"></i
-            ></a>
-            <a
-              href="https://github.com/yourprofile"
-              target="_blank"
-              class="text-[#333] text-4xl transition-transform duration-300 hover:scale-125"
-              x-show="show"
-              x-transition.duration.1000ms.delay.800ms
-              ><i class="fab fa-github"></i
             ></a>
           </div>
         </div>
       </section>
 
-      <!-- Resume Section -->
+      <!-- Education Section -->
+      <section
+        id="education"
+        class="h-[100dvh] flex items-center justify-center"
+        x-intersect.half="setActiveMenu($el.id)"
+      >
+        <div
+          class="max-w-4xl w-full text-center px-4"
+          x-data="{ show: false }"
+          x-intersect="show = true"
+        >
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-8"
+            x-show="show"
+            x-transition.duration.1000ms
+          >
+            Education
+          </h2>
+          
+          <div
+            class="bg-white bg-opacity-15 p-8 rounded-xl backdrop-blur-sm border border-white border-opacity-20 max-w-2xl mx-auto"
+            x-show="show"
+            x-transition.duration.1000ms.delay.200ms
+          >
+            <div class="flex items-center justify-center mb-6">
+              <i class="fas fa-graduation-cap text-4xl text-[#FFD700] mr-4"></i>
+              <div class="text-left">
+                <h3 class="text-2xl font-bold text-white">BSc Banking & Finance</h3>
+                <p class="text-gray-200 text-lg">University of Mauritius</p>
+                <p class="text-gray-300">Jun 2024 – Jun 2027</p>
+              </div>
+            </div>
+            
+            <div class="text-left">
+              <h4 class="font-semibold text-lg text-[#FFD700] mb-3">Coursework:</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-gray-200">
+                <p>• Business Accounting</p>
+                <p>• Business Environment</p>
+                <p>• Mauritian Legal System</p>
+                <p>• Quantitative Finance</p>
+                <p>• Fundamentals of Finance & Banking</p>
+                <p>• Financial Market Intermediation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section
+        id="certifications"
+        class="h-[100dvh] flex items-center justify-center"
+        x-intersect.half="setActiveMenu($el.id)"
+      >
+        <div
+          class="max-w-5xl w-full text-center px-4"
+          x-data="{ show: false }"
+          x-intersect="show = true"
+        >
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-8"
+            x-show="show"
+            x-transition.duration.1000ms
+          >
+            Certifications
+          </h2>
+          
+          <div
+          class="max-w-4xl w-full text-center px-4"
+            x-show="show"
+            x-transition.duration.1000ms.delay.200ms
+          >
+            <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+              <h3 class="font-semibold text-lg mb-4 text-[#FFD700]">
+                <i class="fas fa-certificate mr-2"></i>Certifications
+              </h3>
+              <div class="space-y-3 text-sm">
+                <div>
+                  <h4 class="font-medium text-white">Introduction to Practical Digital Skills</h4>
+                  <p class="text-gray-200">Global Shapers Community (Jun 2025)</p>
+                </div>
+                <div>
+                  <h4 class="font-medium text-white">Leadership Certification</h4>
+                  <p class="text-gray-200">Global Shapers Community (Feb 2025)</p>
+                </div>
+                <div>
+                  <h4 class="font-medium text-white">Digital Proficiency Course</h4>
+                  <p class="text-gray-200">Mauritius Digital Promotion Agency (Oct 2024)</p>
+                </div>
+                <div>
+                  <h4 class="font-medium text-white">DELF B2</h4>
+                  <p class="text-gray-200">France Éducation International (Sep 2022)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section
+        id="skills"
+        class="h-[100dvh] flex items-center justify-center"
+        x-intersect.half="setActiveMenu($el.id)"
+      >
+        <div
+          class="max-w-5xl w-full text-center px-4"
+          x-data="{ show: false }"
+          x-intersect="show = true"
+        >
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-8"
+            x-show="show"
+            x-transition.duration.1000ms
+          >
+            Skills
+          </h2>
+          
+          <div
+          class="max-w-4xl w-full text-center px-4"
+            x-show="show"
+            x-transition.duration.1000ms.delay.200ms
+          >
+            <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+              <h3 class="font-semibold text-lg mb-4 text-[#FFD700]">
+                <i class="fas fa-tools mr-2"></i>Key Skills
+              </h3>
+              <div class="space-y-3 text-sm">
+                <div>
+                  <h4 class="font-medium text-white">Finance</h4>
+                  <p class="text-gray-200">Financial Analysis, Investment Strategies, Economic Research, Market Analysis</p>
+                </div>
+                <div>
+                  <h4 class="font-medium text-white">Technical</h4>
+                  <p class="text-gray-200">Microsoft Office Suite, Data Analysis</p>
+                </div>
+                <div>
+                  <h4 class="font-medium text-white">Languages</h4>
+                  <p class="text-gray-200">English (Fluent), French (Fluent), Mauritian Creole (Native)</p>
+                </div>
+                <div>
+                  <h4 class="font-medium text-white">Soft Skills</h4>
+                  <p class="text-gray-200">Leadership, Team Collaboration, Problem Solving, Analytical Thinking, Communication</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Resume Download Section -->
       <section
         id="resume"
         class="h-[100dvh] flex items-center justify-center"
         x-intersect.half="setActiveMenu($el.id)"
       >
         <div
-          class="max-w-3xl text-center"
+          class="max-w-3xl w-full text-center px-4"
           x-data="{ show: false }"
           x-intersect="show = true"
         >
           <h2
-            class="text-3xl md:text-4xl font-bold mb-4"
+            class="text-3xl md:text-4xl font-bold mb-8"
             x-show="show"
             x-transition.duration.1000ms
           >
             Resume
           </h2>
-          <p
-            class="text-base md:text-lg mb-6"
+          
+          <div
+            class="bg-white bg-opacity-15 p-8 rounded-2xl backdrop-blur-sm border border-white border-opacity-20 max-w-lg mx-auto"
             x-show="show"
             x-transition.duration.1000ms.delay.200ms
           >
-            Download my resume to learn more about my skills, experience, and
-            education.
-          </p>
-          <a
-            href="/data/deesha-gondur-resume.pdf"
-            download="Deesha_Gondur_Resume.pdf"
-            class="inline-block px-8 py-3 bg-[#6A5ACD] text-white font-semibold rounded-md hover:bg-[#483D8B] transition-colors duration-300 transform hover:scale-105"
-            x-show="show"
-            x-transition.duration.1000ms.delay.300ms
-          >
-            <i class="fas fa-download mr-2"></i> Download Resume
-          </a>
-          <!-- Optionally, display key resume points here -->
-          <div
-            class="mt-8 text-left max-w-md mx-auto space-y-4"
-            x-show="show"
-            x-transition.duration.1000ms.delay.400ms
-          >
-            <div>
-              <h3 class="font-semibold text-lg">Education</h3>
-              <p>
-                BSc (Hons) Banking & Finance - University of Mauritius (Expected
-                Graduation: YYYY)
-              </p>
+            <div class="flex items-center justify-center mb-6">
+              <div class="bg-[#6A5ACD] bg-opacity-20 p-4 rounded-full">
+                <i class="fas fa-file-pdf text-4xl text-[#FFD700]"></i>
+              </div>
             </div>
-            <div>
-              <h3 class="font-semibold text-lg">Key Skills</h3>
-              <p>
-                Financial Analysis, Microsoft Excel, Investment Principles,
-                Communication, Teamwork
-              </p>
-            </div>
-            <!-- Add more sections like Experience or Certifications if applicable -->
+            
+            <h3 class="text-xl font-semibold text-white mb-4">Download My Complete Resume</h3>
+            <p class="text-gray-200 mb-6">
+              Get the full details of my education, certifications, skills, and experience in a comprehensive PDF format.
+            </p>
+            
+            <a
+              href="/data/deesha-gondur-resume.pdf"
+              download="Deesha_Gondur_Resume.pdf"
+              class="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#6A5ACD] to-[#483D8B] text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#6A5ACD]/30"
+            >
+              <i class="fas fa-download mr-3 group-hover:animate-bounce"></i>
+              <span>Download Resume</span>
+              <div class="absolute inset-0 bg-white bg-opacity-20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+            
+            <p class="text-gray-300 text-sm mt-4">Last updated: August 2025</p>
           </div>
         </div>
       </section>
